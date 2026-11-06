@@ -1,0 +1,10 @@
+# Linux / Python 3.10.20. Direct dependencies observed in the validation environment.
+# Install the appropriate torch CPU/CUDA wheel for your machine first.
+torch==2.0.1
+numpy==1.26.4
+scipy==1.15.3
+scikit-learn==1.7.2
+lightgbm==4.6.0
+tqdm==4.67.3
+biopython==1.86
+pandas==2.3.3

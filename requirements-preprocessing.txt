@@ -1,0 +1,4 @@
+-r requirements-tested.txt
+# Actual protein embeddings and nucleotide FASTA gene calling.
+fair-esm==2.0.0
+pyrodigal==3.7.1

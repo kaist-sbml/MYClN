@@ -1,0 +1,9 @@
+# Python 3.10+. Use requirements-tested.txt for the locally validated versions.
+torch>=2.0,<3
+numpy>=1.23,<2
+scipy>=1.9,<2
+scikit-learn>=1.1,<2
+lightgbm>=3.3,<5
+tqdm>=4.64,<5
+biopython>=1.80,<2
+pandas>=1.5,<3

@@ -1,0 +1,81 @@
+[
+  {
+    "source": "Final_model/release_ver/expression_model.py",
+    "destination": "expression_model.py",
+    "source_sha256": "a30f3e8f8b1c076bc650e7c4cab8de6c531bda8296bfd9e3b06037cae17982f0"
+  },
+  {
+    "source": "Final_model/release_ver/schema.py",
+    "destination": "schema.py",
+    "source_sha256": "ea35af14a7028bba4ab959398f287d21fb66f1b68783c5c46cf4c47f7a80b4c4"
+  },
+  {
+    "source": "Final_model/release_ver/data.py",
+    "destination": "data.py",
+    "source_sha256": "253b35984927c2c06c93f0de68bf56bbc253a26ce708478a402572184fe1ab33"
+  },
+  {
+    "source": "Final_model/release_ver/split.py",
+    "destination": "split.py",
+    "source_sha256": "ebd37a434374e91f2c06aa4356e4295c1d5746253617f9a326aa0cc5344fc075"
+  },
+  {
+    "source": "Final_model/release_ver/predict.py",
+    "destination": "predict.py",
+    "source_sha256": "8be5afd159f35eb36c42b8032c1a528292938c09db52b903fb624ce9c17279e9"
+  },
+  {
+    "source": "Final_model/release_ver/glm/model.py",
+    "destination": "glm/model.py",
+    "source_sha256": "6d6af40363e4f2db6da6f2a51a49a7f61920de2aa1fb3082643a20d4d0b73a65"
+  },
+  {
+    "source": "Final_model/release_ver/glm/pretrain.py",
+    "destination": "glm/pretrain.py",
+    "source_sha256": "8857ecd325eae9a0df5c670d95209af038184caab453f8a6b0de9e671968063b"
+  },
+  {
+    "source": "Final_model/release_ver/glm/extract.py",
+    "destination": "glm/extract.py",
+    "source_sha256": "255a4ed1fb8464461188cb2e8fc077faa18856539275d7ed000989881500c5fd"
+  },
+  {
+    "source": "Final_model/release_ver/preprocessing/build_dataset.py",
+    "destination": "preprocessing/build_dataset.py",
+    "source_sha256": "fe802c2a2f3204223d954b6d41f711411469465c6c12d6b0070916d06e6c3478"
+  },
+  {
+    "source": "Final_model/release_ver/preprocessing/genome_features.py",
+    "destination": "preprocessing/genome_features.py",
+    "source_sha256": "fad1b6df19a80719c3fc7ee5815de6ad5f7d280ee6beda154bbea2505ac17224"
+  },
+  {
+    "source": "Final_model/release_ver/preprocessing/esm_embeddings.py",
+    "destination": "preprocessing/esm_embeddings.py",
+    "source_sha256": "7cc5d607d696826bbf0c4fbab68f47dfc4ecdfa089ff07ab6d1d3087e48b9ded"
+  },
+  {
+    "source": "Tools/ESM_embedding.ipynb",
+    "destination": "preprocessing/protein_embeddings.py",
+    "source_sha256": "976e35bc83e2e0b7a28ecd84330bce2191a4b466e833a47cbd1b74f57768c42c",
+    "note": "Selected algorithm ported; batch jobs and machine-specific paths omitted."
+  },
+  {
+    "source": "Tools/Run_UniOP.ipynb",
+    "destination": "preprocessing/operons.py",
+    "source_sha256": "d4030e7792f33f5f4d2f52e82052e3bf35e4e5955a4e05d249efb8229428e55c",
+    "note": "Selected algorithm ported; batch jobs and machine-specific paths omitted."
+  },
+  {
+    "source": "Tools/Run_UniOP.ipynb",
+    "destination": "preprocessing/query_features.py",
+    "source_sha256": "d4030e7792f33f5f4d2f52e82052e3bf35e4e5955a4e05d249efb8229428e55c",
+    "note": "Selected algorithm ported; batch jobs and machine-specific paths omitted."
+  },
+  {
+    "source": "Model/Whole_genome/expression_v6/scripts/compute_topology.py",
+    "destination": "preprocessing/query_features.py",
+    "source_sha256": "78f0903bc8ede08b5e342853aa2f17fcce393edb2c9864511aac929653c281b3",
+    "note": "Selected algorithm ported; batch jobs and machine-specific paths omitted."
+  }
+]

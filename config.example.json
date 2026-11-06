@@ -1,0 +1,10 @@
+{
+  "DATA_DIR": "artifacts/reference",
+  "RAW_DATA_DIR": "data/raw",
+  "TOOLS_DIR": "data/tools",
+  "GLM_CHECKPOINT": "artifacts/glm/v7_cisfull_bgcoff_best.pth",
+  "GLM_WARM_START": "artifacts/glm/v6_topo_scratch_bgcoff_best.pth",
+  "EMB_STATS": "artifacts/glm/v5_emb_stats.npz",
+  "ANTISMASH_DIR": null,
+  "MODEL_DIR": "artifacts/expression"
+}

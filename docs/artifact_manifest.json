@@ -1,0 +1,14 @@
+[
+  {
+    "file": "artifacts/glm/v7_cisfull_bgcoff_best.pth",
+    "bytes": 51481144,
+    "sha256": "0144f8a160538e5617fc3d138e3d48139701a904609511820750004892733e93",
+    "included_in_source_archive": false
+  },
+  {
+    "file": "artifacts/glm/v5_emb_stats.npz",
+    "bytes": 4706,
+    "sha256": "cc4bc0c013469aa17cf5c6ab09930bb17543c31aae473a8e45bd5d30d9b2a83d",
+    "included_in_source_archive": false
+  }
+]

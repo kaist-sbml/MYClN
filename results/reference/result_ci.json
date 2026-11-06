@@ -1,0 +1,44 @@
+{
+  "pooled_r": 0.6373644297827272,
+  "pooled_r_ci_species": [
+    0.6190632743558973,
+    0.6575303190912413
+  ],
+  "n_test_rows": 1233774,
+  "n_test_strains": 22,
+  "n_test_genera": 6,
+  "bootstrap_B": 5000,
+  "resample_unit": "species",
+  "per_genus": {
+    "Actinomadura": {
+      "r": 0.6432812307256599,
+      "n_rows": 66832,
+      "n_strains": 1
+    },
+    "Amycolatopsis": {
+      "r": 0.6478983857904211,
+      "n_rows": 362094,
+      "n_strains": 7
+    },
+    "Kitasatospora": {
+      "r": 0.6686303766825622,
+      "n_rows": 374960,
+      "n_strains": 6
+    },
+    "Kribbella": {
+      "r": 0.6418385265939233,
+      "n_rows": 72928,
+      "n_strains": 1
+    },
+    "Micromonospora": {
+      "r": 0.6028319677835242,
+      "n_rows": 153280,
+      "n_strains": 3
+    },
+    "Nocardia": {
+      "r": 0.5749977893809709,
+      "n_rows": 203680,
+      "n_strains": 4
+    }
+  }
+}
