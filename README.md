@@ -1,17 +1,20 @@
-# Actinomycete gene-expression model
+# Model for actinomYcetes Conditional expression using a language model for Natural products (MYClN)
 
-방선균 유전체와 배지 정보를 이용해 유전자별 발현량을 예측하는 최종 모델의 소스 배포판입니다.
-기존 `Final_model/release_ver`의 **BGC-free gLM + media** 구성을 기준으로 정리했습니다.
+This repository contains the source code release of the final model for predicting gene-level expression in actinomycetes from genomic sequences and culture medium information.
 
-모델은 ESM2-35M 단백질 임베딩, gLM 유전체 문맥, DNA 조성, 배지 벡터를 사용합니다.
-학습 유전자의 발현량을 kNN으로 검색한 뒤 8개 seed의 FiLM head, LightGBM, ridge stacking으로 예측합니다.
-**학습은 최초 1회 수행해 저장하고, 예측 명령은 저장된 모델만 불러옵니다.**
-gLM 체크포인트는 `v7_cisfull_bgcoff_best.pth`이며 cis encoder 설정은 96/4입니다.
+The release is based on the **GenomeBERT + media** configuration from `Final_model/release_ver`.
 
-## 빠른 시작: 저장 모델로 예측
+The model integrates ESM2-35M protein embeddings, genomic context representations from gLM, DNA composition features, and culture medium vectors. It retrieves expression profiles of training genes through k-nearest neighbors (kNN) and generates predictions using an ensemble of eight FiLM heads, LightGBM, and ridge regression stacking.
 
-Python 3.10 환경에서 검증했습니다. 소스와 학습된 모델은 별도로 배포합니다.
-**학습된 모델 번들을 받았다면 `train.py`를 실행할 필요가 없습니다.**
+**Training is performed once, and the trained model is saved for subsequent inference. Prediction commands load the saved model without retraining.**
+
+The gLM checkpoint is `v7_cisfull_bgcoff_best.pth`, with a cis encoder configuration of 96/4.
+
+## Quick Start: Inference with a Pretrained Model
+
+The release has been validated with Python 3.10. Source code and pretrained model artifacts are distributed separately.
+
+**If you have downloaded the pretrained model bundle, you do not need to run `train.py`.**
 
 ```bash
 python -m venv .venv
@@ -19,12 +22,16 @@ source .venv/bin/activate
 python -m pip install -r requirements-preprocessing.txt
 ```
 
-PyTorch는 사용 장비와 호환되는 CPU/CUDA wheel이 필요합니다.
-`requirements.txt`는 허용 범위, `requirements-tested.txt`는 A100 검증 환경의 직접 의존성 버전입니다.
+PyTorch must be installed using a CPU or CUDA wheel compatible with your hardware.
 
-모델은 Hugging Face에서 저장소의 `artifacts/` 폴더로 내려받는 구성을 사용합니다.
-`OWNER/MODEL_REPO`는 배포자가 게시한 실제 모델 저장소 ID로 바꾸세요.
-현재 이 표기는 예시이며 업로드된 저장소 주소를 뜻하지 않습니다.
+- `requirements.txt` specifies the supported dependency version ranges.
+- `requirements-tested.txt` records the direct dependency versions used in the validated A100 environment.
+
+### Downloading Model Artifacts
+
+The pretrained model artifacts are distributed through Hugging Face and should be downloaded into the repository's `artifacts/` directory.
+
+Replace `OWNER/MODEL_REPO` with the actual Hugging Face model repository ID provided by the distributor. This is a placeholder and does not refer to an existing uploaded repository.
 
 ```bash
 python -m pip install -U huggingface_hub
@@ -33,36 +40,77 @@ sha256sum -c artifacts/SHA256SUMS
 python -c "from model_artifacts import check_model; print(check_model('artifacts/expression'))"
 ```
 
-게시된 모델 태그나 commit SHA를 `--revision`으로 지정하면 버전을 고정할 수 있습니다.
-기존 tar 번들을 받은 경우에는 `tar -xf /path/to/Final_release-model.tar`로 풀어도 됩니다.
-[Hugging Face 업로드·다운로드 안내](docs/HUGGINGFACE.md)를 참고하세요.
+For reproducibility, specify a published model tag or commit SHA using `--revision`.
 
-`artifacts/expression/`에 검색 인덱스·head·LightGBM·ridge·정규화 통계가,
-`artifacts/glm/`에 gLM 가중치와 입력 정규화 통계가 놓입니다.
-ESM2-35M은 첫 입력 생성 시 공식 가중치를 다운로드해 캐시에 보관합니다.
-기존 로컬 작업 폴더에는 이 모델들이 이미 준비되어 있습니다.
+If you received the model as a tar archive, you can extract it instead:
 
-예측에는 원본 학습 pickle이나 taxonomy CSV가 필요하지 않습니다. 기본 폴더에 모델을 풀었다면
-`config.local.json`도 만들 필요가 없습니다. 다른 위치의 모델은 `--model-dir`로 지정합니다.
+```bash
+tar -xf /path/to/Final_release-model.tar
+```
 
-학습을 재현할 경우에만 reference 파일 경로를 `config.local.json`에 설정하고
-[학습·추론 안내](docs/SERVING.md)를 따르세요. JSON의 상대 경로는 JSON 파일이 있는 폴더 기준이며,
-`ACTEXPR_<설정명>` 환경변수로 개별 경로를 덮어쓸 수 있습니다.
+See [Hugging Face Upload and Download Guide](docs/HUGGINGFACE.md) for details.
 
-## 원시 유전체에서 입력 생성·예측
+The model artifacts are organized as follows:
 
-GenBank 또는 nucleotide FASTA와 배지 이름/조성을 넣으면 필요한 임베딩과 입력 파일을 자동 생성합니다.
+- `artifacts/expression/`: kNN retrieval index, prediction heads, LightGBM models, ridge stacking model, and normalization statistics.
+- `artifacts/glm/`: gLM checkpoint and input normalization statistics.
+
+The official ESM2-35M weights are downloaded and cached automatically during the first input preparation run.
+
+These artifacts are already available in the existing local working directory.
+
+### Configuration
+
+Inference does not require the original training pickle files or taxonomy CSV files.
+
+If the model artifacts are extracted into their default locations, no `config.local.json` file is required.
+
+To load a model from another directory, specify `--model-dir`.
+
+The reference file paths in `config.local.json` are needed only when reproducing training. See [Training and Inference Guide](docs/SERVING.md).
+
+Relative paths in the JSON configuration are resolved relative to the directory containing the JSON file. Individual paths can also be overridden using environment variables of the form `ACTEXPR_<CONFIG_KEY>`.
+
+## End-to-End Prediction from Raw Genomic Sequences
+
+The pipeline automatically generates the embeddings and input files required for prediction from either a GenBank file or a nucleotide FASTA file, together with culture medium information.
+
+### Step 1. Prepare Model Inputs
 
 ```bash
 python -m pip install -r requirements-preprocessing.txt
+
 python prepare_inputs.py --genbank genome.gbk \
   --medium ISP2 --out outputs/my_genome --device cuda
 ```
 
-FASTA는 `--fasta genome.fna --topology linear`로 지정하면 CDS 호출부터 실행합니다.
-배지 조성 JSON은 `--medium ISP2` 대신 `--medium-json examples/medium_composition.json`으로 넣습니다.
-전체 흐름은 **CDS → ESM2-35M → UniOP operon → promoter/topology → gLM → query.npz**입니다.
-동일한 폴더에 `genome.json`, `medium.json`도 생성됩니다.
+For a nucleotide FASTA input, use:
+
+```bash
+python prepare_inputs.py \
+  --fasta genome.fna --topology linear \
+  --medium ISP2 --out outputs/my_genome --device cuda
+```
+
+When using FASTA input, the pipeline performs CDS prediction before generating the model features.
+
+To specify a custom medium composition, replace `--medium ISP2` with:
+
+```bash
+--medium-json examples/medium_composition.json
+```
+
+The complete preprocessing workflow is:
+
+**CDS prediction → ESM2-35M embeddings → UniOP operon prediction → promoter/topology features → gLM embeddings → `query.npz`**
+
+The pipeline also generates the following files in the output directory:
+
+- `genome.json`: genome and gene information.
+- `medium.json`: encoded culture medium information.
+- `query.npz`: model-ready feature arrays.
+
+### Step 2. Run Gene Expression Prediction
 
 ```bash
 python examples/predict_json.py \
@@ -73,84 +121,170 @@ python examples/predict_json.py \
   --output outputs/my_genome/predictions.json
 ```
 
-처음부터 `prepare_inputs.py`에 `--predict`를 추가하면 입력 생성과 발현 예측을 한 번에 실행합니다.
-이때도 미리 학습된 발현 모델이 필요하며 `--model-dir`로 지정할 수 있습니다.
-입력 생성에는 gLM 가중치·정규화 통계·ESM 모델이 필요합니다. 발현 예측에는 저장된 발현 모델과
-query 파일만 필요하고, 원본 학습 pickle·taxonomy 파일을 읽지 않습니다.
-모델이 없거나 저장이 중단된 상태면 즉시 종료하며 자동으로 학습하지 않습니다.
+Alternatively, add `--predict` to `prepare_inputs.py` to perform input preparation and expression prediction in a single command.
 
-[원시 입력 사용법과 실행 예제](docs/RAW_INPUTS.md)에 설치, FASTA gene calling,
-배지 인코딩, 오프라인 가중치 사용법을 정리했습니다.
-이미 계산된 임베딩을 직접 전달할 때의 계약은 [docs/INPUTS.md](docs/INPUTS.md)를 참고하세요.
+This option still requires a pretrained expression model, which can be specified using `--model-dir`.
 
-## 구성
+**Model requirements:**
 
-| 경로 | 내용 |
+- Input preparation requires gLM weights, gLM normalization statistics, and the ESM model.
+- Expression prediction requires only the saved expression model and the prepared query files.
+- Original training pickle files and taxonomy files are not accessed during inference.
+- If required model artifacts are missing or incomplete, the program exits immediately rather than attempting automatic retraining.
+
+For installation instructions, FASTA gene calling, medium encoding, and offline weight loading, see [Raw Input Guide](docs/RAW_INPUTS.md).
+
+For the input specification when providing precomputed embeddings, see [Input Specification](docs/INPUTS.md).
+
+## Repository Structure
+
+| Path | Description |
 |---|---|
-| `expression_model.py` | retrieval, FiLM head, LightGBM, ridge 모델 |
-| `train.py` | 최초 1회 학습·평가 및 모델 저장 |
-| `predict.py`, `serving.py`, `model_artifacts.py` | 저장 모델 검증·로드 및 새 유전체 추론 |
-| `prepare_inputs.py` | GenBank/FASTA + 배지 → 전체 추론 입력 자동 생성 |
-| `config.py`, `configs/head.json` | 포터블 경로 설정과 최종 튜닝값 |
-| `schema.py`, `data.py`, `split.py` | 데이터 계약, 변환, genus 단위 분할 |
-| `glm/` | 최종 gLM 아키텍처, 사전학습, 임베딩 추출 |
-| `preprocessing/` | CDS 호출·ESM·UniOP·promoter·topology·배지 인코딩 및 참조 데이터 병합 |
-| `results/reference/` | 기존 최종 실행의 결과 JSON과 신뢰구간 |
-| `tests/`, `.github/workflows/ci.yml` | CPU 통합 검증 및 GitHub CI |
-| `artifacts/glm/` | 현재 폴더에 별도 보관한 gLM 가중치와 정규화 통계; Git 제외 |
-| `artifacts/expression/` | `train.py` 완료 후 생성되는 발현 모델; Git 제외 |
+| `expression_model.py` | kNN retrieval, FiLM prediction heads, LightGBM, and ridge stacking |
+| `train.py` | One-time model training, evaluation, and artifact saving |
+| `predict.py`, `serving.py`, `model_artifacts.py` | Saved model validation, loading, and inference on new genomes |
+| `prepare_inputs.py` | End-to-end input generation from GenBank/FASTA and culture medium information |
+| `config.py`, `configs/head.json` | Portable path configuration and final tuned hyperparameters |
+| `schema.py`, `data.py`, `split.py` | Data specifications, transformations, and genus-level splitting |
+| `glm/` | Final gLM architecture, pretraining, and embedding extraction |
+| `preprocessing/` | CDS prediction, ESM embeddings, UniOP, promoter/topology features, medium encoding, and reference data integration |
+| `results/reference/` | Reference evaluation results and confidence intervals |
+| `tests/`, `.github/workflows/ci.yml` | CPU integration tests and GitHub Actions CI |
+| `artifacts/glm/` | Separately stored gLM weights and normalization statistics; excluded from Git |
+| `artifacts/expression/` | Trained expression model artifacts generated by `train.py`; excluded from Git |
 
-## 성능과 재현 범위
+## Model Performance and Reproducibility
 
-기존 최종 실행의 test Pearson r은 **0.637364**, within-condition r은 **0.643334**입니다.
-22개 test 균주를 단위로 한 bootstrap 95% 신뢰구간은 **[0.619063, 0.657530]**입니다.
-저장된 실제 split 목록은 **133 train / 5 validation / 22 test = 160개**입니다.
-기존 문서의 “161-strain”은 실험 식별용 표기이며 실제 결과 목록의 합과 다릅니다.
-이 결과는 6개 genus를 함께 hold out한 canonical 평가이며 LOGO 평균이 아닙니다.
+### Reference Evaluation
 
-이후 학습·저장을 완료한 배포 모델의 test Pearson r은 **0.637365**, within-condition r은
-**0.643334**입니다. 위 신뢰구간은 기존 실행에 대한 값이며 새 실행에서 다시 계산하지 않았습니다.
-저장된 모델을 새 프로세스에서 로드한 실제 유전체 추론도 확인했습니다.
-검증 이력은 [docs/VALIDATION.md](docs/VALIDATION.md)를 참고하세요.
+The original final evaluation achieved the following results:
 
-S. venezuelae ATCC 10712 / ISP2의 7,132개 유전자에 대해 A100 80GB에서 측정한 1회 실행은
-입력 생성 **46.1초**, 모델 로드·종료를 포함한 추론 **10.2초**, 합계 **56.3초**였습니다.
-추론 함수 내부 시간은 4.1초입니다. 가중치와 OS 파일 캐시가 준비된 환경의 측정이며
-일반 GPU의 속도나 최소 VRAM을 보장하는 결과는 아닙니다. [자원 측정](docs/RESOURCE_USAGE.md)을 참고하세요.
+| Metric | Value |
+|---|---:|
+| Test Pearson correlation (r) | **0.637364** |
+| Within-condition Pearson correlation (r) | **0.643334** |
+| 95% bootstrap confidence interval | **[0.619063, 0.657530]** |
 
-## GitHub 업로드
+The confidence interval was estimated by bootstrapping the 22 test strains.
 
-코드는 [GitHub 업로드 안내](docs/GITHUB_UPLOAD.md), 모델은 [Hugging Face 배포 안내](docs/HUGGINGFACE.md)를 따릅니다.
-코드, 설정 예시, 문서, 작은 평가 JSON을 Git에 올리면 됩니다.
-`.gitignore`는 로컬 설정, 데이터, 모델 가중치, 실행 결과, 캐시를 제외합니다.
-별도 소스 ZIP은 다음 명령으로 생성합니다.
+The actual saved dataset split contains **160 strains**:
+
+| Dataset split | Number of strains |
+|---|---:|
+| Training | 133 |
+| Validation | 5 |
+| Test | 22 |
+| **Total** | **160** |
+
+The designation "161-strain" in earlier documentation was an experiment identifier and does not match the total number of strains in the saved evaluation records.
+
+The reported results correspond to the canonical evaluation in which six genera were held out together. They are **not** the mean of leave-one-genus-out (LOGO) evaluations.
+
+### Validation of the Distributed Model
+
+After completing model training and saving the release artifacts, the distributed model achieved:
+
+| Metric | Value |
+|---|---:|
+| Test Pearson correlation (r) | **0.637365** |
+| Within-condition Pearson correlation (r) | **0.643334** |
+
+The bootstrap confidence interval reported above belongs to the original reference evaluation and was not recalculated for the newly saved model.
+
+Inference on an actual genome was also verified by loading the saved model in a new process.
+
+For additional validation details, see [Validation Report](docs/VALIDATION.md).
+
+### Computational Performance
+
+Runtime was measured using *Streptomyces venezuelae* ATCC 10712 grown in ISP2 medium, covering **7,132 genes**, on an NVIDIA A100 80 GB GPU.
+
+| Operation | Runtime |
+|---|---:|
+| Input preparation | 46.1 s |
+| Inference, including model loading and process termination | 10.2 s |
+| **Total** | **56.3 s** |
+| Prediction function only | 4.1 s |
+
+These measurements were obtained with the model weights and operating system file caches already available.
+
+They should not be interpreted as guaranteed runtimes on other GPUs or as an estimate of minimum GPU memory requirements.
+
+See [Resource Usage](docs/RESOURCE_USAGE.md) for details.
+
+## GitHub Source Code Release
+
+Source code and model artifacts are distributed separately.
+
+Follow the [GitHub Upload Guide](docs/GITHUB_UPLOAD.md) to publish the source code and the [Hugging Face Distribution Guide](docs/HUGGINGFACE.md) to publish model artifacts.
+
+The GitHub repository should contain source code, example configuration files, documentation, and small reference evaluation JSON files.
+
+The `.gitignore` file excludes local configurations, datasets, trained model weights, generated outputs, and caches.
+
+To generate a standalone source distribution ZIP:
 
 ```bash
 python scripts/package_release.py
-# dist/Final_release-source.zip
+# Output: dist/Final_release-source.zip
 ```
 
-ZIP에는 서버 경로, 로컬 설정, 모델 가중치, 원시 데이터가 포함되지 않습니다.
-## 모델 배포
+The source ZIP does not include server-specific paths, local configurations, model weights, or raw datasets.
 
-학습된 발현 모델·kNN 검색 데이터·gLM 가중치는 Hugging Face Model 저장소 하나에 함께 배포합니다.
-`artifacts/expression/`과 `artifacts/glm/`을 그대로 올리므로 tar 분할이 필요 없습니다.
-GitHub에는 코드만 올리고, 코드 버전에 맞는 Hugging Face 모델 태그/commit을 문서에 명시합니다.
+## Pretrained Model Distribution
+
+The trained expression model, kNN reference data, and gLM checkpoint are distributed together through a single Hugging Face Model repository.
+
+The following directories are uploaded without modification:
+
+```text
+artifacts/
+├── expression/
+└── glm/
+```
+
+There is no need to split the model artifacts into multiple tar archives.
+
+GitHub hosts the source code, while Hugging Face hosts the model artifacts. The GitHub documentation should identify the Hugging Face model tag or commit corresponding to each source release.
+
+### Preparing Hugging Face Metadata
 
 ```bash
 python scripts/prepare_hf_metadata.py
-# artifacts/README.md 및 artifacts/SHA256SUMS 준비; 업로드는 수행하지 않음
+# Generates artifacts/README.md and artifacts/SHA256SUMS
+# Does not upload files
 ```
 
-오프라인 전달용 tar가 필요한 경우에는 다음 기존 명령을 사용할 수 있습니다.
+### Optional Offline Model Archive
+
+For offline distribution, the existing packaging script can be used:
 
 ```bash
 python scripts/package_model.py
-# dist/Final_release-model.tar + dist/Final_release-model.SHA256SUMS
+# Outputs:
+# dist/Final_release-model.tar
+# dist/Final_release-model.SHA256SUMS
 ```
 
-번들은 `artifacts/expression/`(학습셋 133개 균주 기준 kNN 검색 인덱스·발현 테이블·`reference_genes.tsv`,
-FiLM head 8개, LightGBM, ridge, 정규화 통계, 평가 결과)와 `artifacts/glm/`을 포함합니다.
-소스 checkout 루트에서 풀면 바로 `examples/predict_json.py`로 예측할 수 있습니다.
-원시 유전체 입력 생성용 gLM/ESM 가중치도 필요합니다. [아티팩트 목록](docs/ARTIFACTS.md)을 참고하세요.
-소스의 기존 권리·라이선스는 이 정리에서 변경하지 않았습니다.
+The model archive includes:
+
+**`artifacts/expression/`**
+
+- kNN retrieval index and expression reference table based on 133 training strains
+- `reference_genes.tsv`
+- Eight trained FiLM prediction heads
+- LightGBM models
+- Ridge stacking model
+- Normalization statistics
+- Evaluation results
+
+**`artifacts/glm/`**
+
+- gLM checkpoint
+- Input normalization statistics
+
+After extracting the archive into the root directory of a source checkout, inference can be performed directly using `examples/predict_json.py`.
+
+Raw genome input preparation additionally requires the gLM and ESM model weights.
+
+See [Artifact Inventory](docs/ARTIFACTS.md) for a complete description of the distributed files.
