@@ -29,3 +29,5 @@ venv/
 /downloads/
 *.tar
 *.tar.part-*
+
+/experiments/
