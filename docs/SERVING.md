@@ -1,4 +1,6 @@
-# 한 번 학습하고 저장 모델로 예측하기
+# MYClN: 한 번 학습하고 저장 모델로 예측하기
+
+ActinoBERT는 genomic backbone, MYClN은 전체 발현 예측 모델의 이름입니다.
 
 `train.py`가 학습과 모델 저장을 담당하고 `examples/predict_json.py`는 추론만 합니다.
 예측 중에는 reference 전체의 kNN 재계산, FiLM 학습, LightGBM 학습, ridge fitting이 없습니다.

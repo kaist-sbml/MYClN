@@ -1,4 +1,4 @@
-"""One-time training, evaluation and export of the complete expression model."""
+"""One-time training, evaluation and export of MYClN."""
 import argparse
 import json
 from pathlib import Path

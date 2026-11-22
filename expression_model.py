@@ -1,6 +1,6 @@
-"""Homology-retrieval + learned-head gene-expression predictor (deployment build).
+"""MYClN: homology-retrieval + learned-head gene-expression predictor.
 
-Single, self-contained module for the shipped "gLM + media" configuration: it
+Single, self-contained module for the MYClN configuration (ActinoBERT + media): it
 predicts per-(gene, growth-medium) expression by combining kNN homology transfer
 from training genes with a learned FiLM-conditioned residual head, LightGBM, and a
 ridge stack.  Held-out-genus (leakage-safe) evaluation.

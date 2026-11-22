@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Extract per-gene embeddings with the topology-aware genome BERT.
+"""Extract per-gene embeddings with ActinoBERT, the MYClN genomic backbone.
 
 Loads a trained checkpoint, runs the model over a genome corpus, and writes the
 pickles consumed by the downstream expression model:

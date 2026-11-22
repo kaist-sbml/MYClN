@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Self-supervised pretraining loop for the genome BERT backbone.
+"""Self-supervised pretraining loop for the ActinoBERT backbone.
 
 Operon-masked gene reconstruction over the full genome corpus (batch_size=1,
 one genome per step). Loss = MSE + CONTRASTIVE_WEIGHT * InfoNCE +

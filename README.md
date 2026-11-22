@@ -4,6 +4,10 @@
 
 Predicts gene-level expression in actinomycetes from genomic sequences and culture medium information.
 
+**ActinoBERT** is the genomic language-model backbone. **MYClN** is the complete
+expression predictor combining ActinoBERT and ESM-2 representations, DNA features,
+culture-medium information, retrieval, and the fitted prediction ensemble.
+
 ## Installation
 
 Tested with Python 3.10. Install PyTorch 2.0.1 for your CPU/CUDA environment, then:

@@ -1,7 +1,7 @@
-# Artifacts and model identity
+# MYClN artifacts and ActinoBERT identity
 
 This release follows `Final_model/release_ver/config.py`, not the older BGC-on
-`Final_model` README. The expression pipeline uses the BGC-free v7 gLM with
+`Final_model` README. MYClN uses the BGC-free v7 ActinoBERT backbone with
 `promoter_conv_dim=96`, `promoter_dils=4`, and the exact head parameters in
 `configs/head.json`. Taxonomy recovery from antiSMASH headers is disabled.
 
@@ -28,7 +28,7 @@ differ. The model retains the source pipeline's independent indexing and zero
 features for reference genes absent from an embedding order. Query prediction
 requires complete embeddings for all supplied query genes.
 
-## gLM artifacts
+## ActinoBERT artifacts
 
 The local delivery includes copies in `artifacts/glm/` of:
 
@@ -37,7 +37,7 @@ The local delivery includes copies in `artifacts/glm/` of:
 
 These files are ignored by Git and excluded from the source ZIP.
 Their byte sizes and SHA-256 hashes are in [artifact_manifest.json](artifact_manifest.json).
-The pretrained gLM is an embedding backbone; it is not a serialized expression
+The pretrained ActinoBERT is an embedding backbone; it is not a serialized expression
 retrieval index or fitted FiLM/LightGBM/ridge ensemble.
 
 For optional gLM pretraining, `GLM_WARM_START` points to the BGC-free stage-1

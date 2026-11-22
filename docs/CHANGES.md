@@ -1,7 +1,7 @@
 # Changes from the final research release
 
 Source file identities and original SHA-256 digests are recorded in
-[source_manifest.json](source_manifest.json). All original files remain untouched.
+[source_manifest.json](source_manifest.json). These identify the original source snapshots; subsequent naming updates are recorded below.
 
 - Selected the final `release_ver` BGC-free configuration and copied its exact
   tuned head parameters and measured results. Excluded old model variants,
@@ -63,3 +63,9 @@ the input file. Standard commands only require input, medium and output; the old
   use without reference files, truncated exports and CUDA export/reload.
 - Update the JSON CLI and raw-input --predict path to use MODEL_DIR or --model-dir.
   Previous reference/hp arguments to predict() are removed: fitting belongs in train.py.
+
+## Model naming — 2026-11-22
+
+- The final genomic backbone is named **ActinoBERT**; the complete expression predictor is **MYClN**.
+- `build_model()` returns `ActinoBERT`. `GenomeBERT` remains an alias for compatibility.
+- Checkpoint filenames, state-dictionary keys, environment variables, artifact formats, and evaluation values are unchanged.

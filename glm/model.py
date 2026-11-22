@@ -1,4 +1,4 @@
-"""Topology-aware hierarchical genome BERT -- the embedding backbone.
+"""ActinoBERT -- the topology-aware genomic embedding backbone for MYClN.
 
 Self-contained model definitions: constants, the self-supervised losses, the
 `HierGenomeDataset`/`collate_fn` data layer, every nn.Module, and the build
@@ -6,11 +6,11 @@ functions. Consumed by `pretrain.py` (training) and `extract.py` (embedding
 extraction), which do `from model import ...`.
 
 Public model classes:
-  GenomeBERT              -- top model: hierarchy + topology + deep DNA cis-encoder
+  ActinoBERT              -- top model: hierarchy + topology + deep DNA cis-encoder
   HierarchicalGenomeBERT  -- base hierarchy (cheap promoter encoder)
   PromoterCisEncoder      -- deep dilated-conv DNA cis-grammar encoder
 Build functions:
-  build_model(global_dim, warm_start=None, ...)  -- GenomeBERT (cis + topology)
+  build_model(global_dim, warm_start=None, ...)  -- ActinoBERT (cis + topology)
   build_topo_only(global_dim, warm_start=None)   -- HierarchicalGenomeBERT (topology only)
 """
 
@@ -1245,12 +1245,15 @@ class PromoterCisEncoder(nn.Module):
             out=out.scatter(0,vm.nonzero(as_tuple=True)[0].unsqueeze(-1).expand(-1,D),ov.to(out.dtype))
         return out.reshape(B,O,D)
 
-class GenomeBERT(HierarchicalGenomeBERT):
-    """Hierarchical genome BERT with the deep DNA cis-encoder swapped in (hierarchy preserved)."""
+class ActinoBERT(HierarchicalGenomeBERT):
+    """ActinoBERT with the deep DNA cis-encoder (hierarchy preserved)."""
     def __init__(s,*a,promoter_conv_dim=96,promoter_dils=3,promoter_use_ckpt=False,**kw):
         super().__init__(*a,**kw)
         s.promoter_encoder=PromoterCisEncoder(in_dim=5,d_model=s.d_model,
             conv_dim=promoter_conv_dim,n_dil=promoter_dils,use_ckpt=promoter_use_ckpt)
+
+# Compatibility name for existing imports and previously serialized objects.
+GenomeBERT = ActinoBERT
 
 def build_topo_only(global_dim,warm_start=None):
     """Phase-1 model: the hierarchy + topology(a-d) + hierarchical global(registers/contig),
@@ -1268,7 +1271,7 @@ def build_topo_only(global_dim,warm_start=None):
 
 def build_model(global_dim,warm_start=None,
              promoter_conv_dim=96,promoter_dils=3,promoter_use_ckpt=False):
-    m=GenomeBERT(gene_emb_dim=480,global_input_dim=global_dim,promoter_numeric_dim=4,
+    m=ActinoBERT(gene_emb_dim=480,global_input_dim=global_dim,promoter_numeric_dim=4,
         d_model=480,nhead=8,genome_layers=2,max_operons=MAX_OPERONS,local_window=LOCAL_WINDOW,
         max_size_global=MAX_SIZE_GLOBAL,promoter_len=PROMOTER_LEN,max_genes_per_operon=MAX_GENES_PER_OPERON,
         topology_aware=True, n_registers=16,   # ★ circular/linear + hierarchical global (registers+contig)

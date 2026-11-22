@@ -7,7 +7,9 @@ tags:
 - pytorch
 ---
 
-# Actinomycete gene-expression model — BGC-free gLM + media
+# MYClN — gene-expression prediction with ActinoBERT
+
+MYClN uses the BGC-free **ActinoBERT** genomic backbone.
 
 Fitted model artifacts for predicting per-gene expression from an actinomycete
 genome and a growth-medium vector. The accompanying GitHub source provides the
