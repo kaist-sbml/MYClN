@@ -25,10 +25,20 @@ def encode_medium(spec, catalog_path=DEFAULT_CATALOG):
         composition = spec['composition']
         if not isinstance(composition, dict) or not composition:
             raise ValueError('composition must be a nonempty ingredient-to-amount object')
+        aliases = catalog.get('component_aliases', {})
+        resolved = {}
+        for ingredient, amount in composition.items():
+            target = aliases.get(ingredient, ingredient)
+            if target in resolved:
+                raise ValueError(f'Duplicate ingredient after alias resolution: {target}')
+            resolved[target] = amount
+        composition = resolved
         unknown = set(composition) - set(components)
         if unknown:
             raise ValueError(f'Unknown ingredients: {sorted(unknown)}; use exact names in the reference vocabulary')
         vector = np.array([composition.get(c, 0.0) for c in components], dtype=np.float32)
+    elif name in catalog.get('undefined_media', {}):
+        raise ValueError(f'Medium {name!r} has no specified recipe; provide its composition or vector explicitly')
     elif name in catalog.get('ambiguous_names', {}):
         raise ValueError(f'Medium {name!r} has several reference recipes; provide its composition explicitly')
     elif name in catalog['media']:

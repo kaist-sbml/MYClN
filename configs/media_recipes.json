@@ -1,0 +1,522 @@
+{
+  "ISP2": {
+    "type": "Complex",
+    "n_components": 3,
+    "composition": {
+      "Malt extract": 10.0,
+      "Glucose": 4.0,
+      "Yeast extract": 4.0
+    }
+  },
+  "DNPM": {
+    "type": "Complex",
+    "n_components": 4,
+    "composition": {
+      "Dextrin": 40.0,
+      "MOPS": 21.0,
+      "Peptone": 7.5,
+      "Yeast extract": 5.0
+    }
+  },
+  "TSB50": {
+    "type": "Complex",
+    "n_components": 1,
+    "composition": {
+      "Tryptic soy broth": 15.0
+    }
+  },
+  "MA": {
+    "type": "Complex",
+    "n_components": 5,
+    "composition": {
+      "MOPS": 21.0,
+      "Glucose": 5.0,
+      "Casamino acids": 1.0,
+      "Meat extract": 0.5,
+      "Yeast extract": 0.5
+    }
+  },
+  "soyM": {
+    "type": "Complex",
+    "n_components": 2,
+    "composition": {
+      "Mannitol": 10.0,
+      "Soy flour": 10.0
+    }
+  },
+  "SMM-glucose": {
+    "type": "Complex",
+    "n_components": 3,
+    "composition": {
+      "Glucose": 4.0,
+      "Casamino acids": 2.0,
+      "SMMa": 1.0
+    }
+  },
+  "SMM-glycerol": {
+    "type": "Complex",
+    "n_components": 3,
+    "composition": {
+      "Glycerol": 5.0,
+      "Casamino acids": 2.0,
+      "SMMa": 1.0
+    }
+  },
+  "SMM-maltose": {
+    "type": "Complex",
+    "n_components": 3,
+    "composition": {
+      "Maltose": 4.0,
+      "Casamino acids": 2.0,
+      "SMMa": 1.0
+    }
+  },
+  "7H9": {
+    "type": "Defined",
+    "n_components": 12,
+    "composition": {
+      "Na2HPO4": 2.5,
+      "KH2PO4": 1.0,
+      "(NH4)2SO4": 0.5,
+      "L-Glutamic acid": 0.5,
+      "Ferric ammonium citrate": 0.4,
+      "Sodium citrate": 0.1,
+      "MgSO4": 0.05,
+      "CuSO4": 0.001,
+      "Pyridoxine": 0.001,
+      "ZnSO4": 0.001,
+      "Biotin": 0.0005,
+      "CaCl2": 0.0005
+    }
+  },
+  "BHI": {
+    "type": "Undefined (commercial)",
+    "n_components": 0,
+    "composition": null
+  },
+  "CGXII": {
+    "type": "Defined",
+    "n_components": 14,
+    "composition": {
+      "MOPS": 21.0,
+      "(NH4)2SO4": 20.0,
+      "Xylose": 20.0,
+      "Urea": 5.0,
+      "KH2PO4": 1.0,
+      "K2HPO4": 1.0,
+      "MgSO4·7H2O": 0.25,
+      "CaCl2": 0.01,
+      "FeSO4·7H2O": 0.01,
+      "ZnSO4·7H2O": 0.001,
+      "CuSO4·5H2O": 0.0002,
+      "Biotin": 0.0002,
+      "MnSO4·H2O": 0.0001,
+      "NiCl2·6H2O": 2e-05
+    }
+  },
+  "GPM": {
+    "type": "Complex",
+    "n_components": 7,
+    "composition": {
+      "Glucose": 22.0,
+      "Maltodextrin": 12.0,
+      "Peptone": 3.0,
+      "NaCl": 1.0,
+      "MgSO4": 0.8,
+      "KCl": 0.5,
+      "KH2PO4": 0.1
+    }
+  },
+  "HdB-Tyl": {
+    "type": "Defined",
+    "n_components": 14,
+    "composition": {
+      "Glucose": 10.0,
+      "Na2HPO4": 3.0,
+      "(NH4)2SO4": 2.0,
+      "KH2PO4": 1.07,
+      "Tyloxapol": 0.5,
+      "MgCl2·6H2O": 0.1,
+      "EDTA": 0.01,
+      "CaCl2": 0.0068,
+      "FeSO4·7H2O": 0.005,
+      "ZnSO4·7H2O": 0.002,
+      "MnCl2·2H2O": 0.001,
+      "CoCl2·6H2O": 0.0004,
+      "CuSO4·5H2O": 0.0002,
+      "Na2MoO4·2H2O": 0.0002
+    }
+  },
+  "HIB": {
+    "type": "Undefined (commercial)",
+    "n_components": 0,
+    "composition": null
+  },
+  "M9": {
+    "type": "Defined",
+    "n_components": 4,
+    "composition": {
+      "Na2HPO4": 33.9,
+      "KH2PO4": 15.0,
+      "NH4Cl": 5.0,
+      "NaCl": 2.5
+    }
+  },
+  "Media1": {
+    "type": "Defined",
+    "n_components": 10,
+    "composition": {
+      "MOPS": 20.0,
+      "(NH4)2SO4": 7.0,
+      "K2HPO4": 0.5,
+      "MgCl2·6H2O": 0.4,
+      "CaCl2·2H2O": 0.0265,
+      "Inositol": 0.0016,
+      "Biotin": 0.0004,
+      "Pantothenic acid": 0.00032,
+      "Pyridoxine-HCl": 0.00016,
+      "Thiamine-HCl": 0.00016
+    }
+  },
+  "Media2": {
+    "type": "Defined",
+    "n_components": 16,
+    "composition": {
+      "NaCl": 27.13,
+      "MOPS": 20.0,
+      "(NH4)2SO4": 7.0,
+      "MgSO4": 3.38,
+      "MgCl2": 2.5,
+      "CaCl2": 1.17,
+      "KCl": 0.74,
+      "K2HPO4": 0.5,
+      "MgCl2·6H2O": 0.4,
+      "NaHCO3": 0.21,
+      "CaCl2·2H2O": 0.0265,
+      "Inositol": 0.0016,
+      "Biotin": 0.0004,
+      "Pantothenic acid": 0.00032,
+      "Pyridoxine-HCl": 0.00016,
+      "Thiamine-HCl": 0.00016
+    }
+  },
+  "Media4": {
+    "type": "Complex",
+    "n_components": 3,
+    "composition": {
+      "Soluble starch": 8.0,
+      "Malt extract": 3.0,
+      "Yeast extract": 2.0
+    }
+  },
+  "Media7": {
+    "type": "Complex",
+    "n_components": 9,
+    "composition": {
+      "Corn starch": 75.0,
+      "Soy flour": 10.0,
+      "(NH4)2SO4": 7.0,
+      "CaCO3": 7.0,
+      "Corn steep liquor": 2.5,
+      "NaCl": 2.0,
+      "Amylase": 0.075,
+      "KH2PO4": 0.075,
+      "CoCl2": 0.005
+    }
+  },
+  "Media8": {
+    "type": "Complex",
+    "n_components": 11,
+    "composition": {
+      "MOPS": 8.0,
+      "Peptone": 8.0,
+      "K2HPO4": 2.0,
+      "KCl": 1.5,
+      "Dextrin": 1.0,
+      "MgCl2·6H2O": 1.0,
+      "Glycerol trioleate": 0.728,
+      "CaCl2·2H2O": 0.4,
+      "NaCl": 0.18,
+      "FeCl3·6H2O": 0.08,
+      "ZnCl2": 0.01
+    }
+  },
+  "Media9": {
+    "type": "Complex",
+    "n_components": 11,
+    "composition": {
+      "MOPS": 8.0,
+      "Peptone": 4.0,
+      "K2HPO4": 2.0,
+      "KCl": 1.5,
+      "Dextrin": 1.0,
+      "MgCl2·6H2O": 1.0,
+      "Glycerol trioleate": 0.728,
+      "CaCl2·2H2O": 0.4,
+      "NaCl": 0.18,
+      "FeCl3·6H2O": 0.08,
+      "ZnCl2": 0.01
+    }
+  },
+  "Media10": {
+    "type": "Complex",
+    "n_components": 6,
+    "composition": {
+      "Sucrose": 80.0,
+      "Soybean powder": 20.0,
+      "CaCO3": 3.0,
+      "K2HPO4": 1.0,
+      "Skimmed milk powder": 1.0,
+      "FeSO4·7H2O": 0.1
+    }
+  },
+  "Media11": {
+    "type": "Defined",
+    "n_components": 7,
+    "composition": {
+      "Glycerol": 25.0,
+      "Na2HPO4·2H2O": 12.0,
+      "Sodium glutamate monohydrate": 11.3,
+      "KH2PO4": 8.0,
+      "MgSO4·7H2O": 1.2,
+      "Ferric(III) citrate": 0.06,
+      "ZnSO4": 0.00097
+    }
+  },
+  "Media12": {
+    "type": "Complex",
+    "n_components": 9,
+    "composition": {
+      "Maltose": 5.0,
+      "K2HPO4": 2.6,
+      "Cellobiose": 2.5,
+      "(NH4)2SO4": 2.0,
+      "MgSO4·7H2O": 0.6,
+      "CaCl2": 0.001,
+      "FeSO4·7H2O": 0.001,
+      "MnCl2·4H2O": 0.001,
+      "ZnSO4·7H2O": 0.001
+    }
+  },
+  "Media13": {
+    "type": "Complex",
+    "n_components": 5,
+    "composition": {
+      "Glycerol": 45.36,
+      "MOPS": 20.9,
+      "Yeast extract": 7.0,
+      "NaCl": 5.0,
+      "NaNO3": 1.0
+    }
+  },
+  "Media14": {
+    "type": "Defined",
+    "n_components": 19,
+    "composition": {
+      "(NH4)2SO4": 15.0,
+      "Mannitol": 10.0,
+      "NaCl": 1.0,
+      "MgCl2·6H2O": 0.55,
+      "CaCl2": 0.2,
+      "3,4-Dihydroxybenzoic acid": 0.03,
+      "FeSO4": 0.02,
+      "FeCl3·6H2O": 0.002,
+      "MnSO4·H2O": 0.002,
+      "Nicotinamide": 0.001,
+      "Riboflavin": 0.001,
+      "Pyridoxine-HCl": 0.0005,
+      "Thiamine-HCl": 0.0005,
+      "ZnSO4·H2O": 0.0005,
+      "Biotin": 0.0002,
+      "CuCl2·2H2O": 0.0002,
+      "Na2B4O7·10H2O": 0.0002,
+      "(NH4)6Mo7O24·4H2O": 0.0001,
+      "p-Aminobenzoic acid": 0.0001
+    }
+  },
+  "Media17": {
+    "type": "Defined",
+    "n_components": 4,
+    "composition": {
+      "Glucose": 50.0,
+      "Cotton seed powder": 25.0,
+      "Lactose": 25.0,
+      "CaCO3": 4.0
+    }
+  },
+  "Media18": {
+    "type": "Complex",
+    "n_components": 6,
+    "composition": {
+      "Soluble starch": 25.0,
+      "Sucrose": 15.0,
+      "Malt extract": 10.0,
+      "Isopropanol": 9.432,
+      "Yeast extract": 8.0,
+      "Isobutanol": 4.01
+    }
+  },
+  "Media19": {
+    "type": "Complex",
+    "n_components": 8,
+    "composition": {
+      "Casamino acids": 62.5,
+      "(NH4)2SO4": 25.0,
+      "Glucose": 20.0,
+      "CaCl2": 1.25,
+      "FeSO4·7H2O": 1.25,
+      "MnCl2·4H2O": 1.25,
+      "ZnSO4·7H2O": 1.25,
+      "MgSO4·7H2O": 0.75
+    }
+  },
+  "Media21": {
+    "type": "Complex",
+    "n_components": 5,
+    "composition": {
+      "Corn powder": 100.0,
+      "Soy flour": 25.0,
+      "Yeast extract": 5.0,
+      "KH2PO4": 1.0,
+      "NaCl": 1.0
+    }
+  },
+  "Media22": {
+    "type": "Complex",
+    "n_components": 5,
+    "composition": {
+      "Glucose": 10.0,
+      "Glycerol": 10.0,
+      "Tryptone": 2.0,
+      "Beef extract": 1.0,
+      "Yeast extract": 1.0
+    }
+  },
+  "Media23": {
+    "type": "Complex",
+    "n_components": 10,
+    "composition": {
+      "Soybean oil": 150.0,
+      "Germ powder": 8.0,
+      "CaCO3": 5.0,
+      "Soybean powder": 5.0,
+      "KCl": 2.0,
+      "Tartaric acid": 2.0,
+      "Urea": 1.6,
+      "NaCl": 1.0,
+      "K2HPO4": 0.1,
+      "MgSO4": 0.1
+    }
+  },
+  "MGm-2.5": {
+    "type": "Complex",
+    "n_components": 9,
+    "composition": {
+      "Starch": 50.0,
+      "MOPS": 21.0,
+      "Glutamate": 8.83,
+      "KH2PO4/K2HPO4": 0.34,
+      "MgSO4·7H2O": 0.2,
+      "FeSO4·7H2O": 0.009,
+      "CaCl2": 0.001,
+      "NaCl": 0.001,
+      "TSE": 2.1e-05
+    }
+  },
+  "MM-101": {
+    "type": "Defined",
+    "n_components": 7,
+    "composition": {
+      "Glucose": 10.0,
+      "K2HPO4": 7.0,
+      "NH4Cl": 7.0,
+      "KH2PO4": 3.0,
+      "MgSO4·7H2O": 0.25,
+      "CaCl2·2H2O": 0.0138,
+      "TSE": 9.2e-05
+    }
+  },
+  "MMLM": {
+    "type": "Complex",
+    "n_components": 9,
+    "composition": {
+      "Glucose": 20.0,
+      "NaH2PO4/K2HPO4 buffer": 14.07,
+      "Casamino acids": 6.25,
+      "(NH4)2SO4": 2.5,
+      "MgSO4·7H2O": 0.75,
+      "CaCl2": 0.00125,
+      "FeSO4·7H2O": 0.00125,
+      "MnCl2·4H2O": 0.00125,
+      "ZnSO4·7H2O": 0.00125
+    }
+  },
+  "MYM": {
+    "type": "Complex",
+    "n_components": 4,
+    "composition": {
+      "Agar": 20.0,
+      "Malt extract": 10.0,
+      "Maltose": 4.0,
+      "Yeast extract": 4.0
+    }
+  },
+  "R5": {
+    "type": "Complex",
+    "n_components": 14,
+    "composition": {
+      "Sucrose": 103.0,
+      "MgCl2·6H2O": 10.12,
+      "Glucose": 10.0,
+      "TES": 5.73,
+      "Yeast extract": 5.0,
+      "NaOH": 0.28,
+      "K2SO4": 0.25,
+      "Casamino acids": 0.1,
+      "FeCl3·6H2O": 0.0004,
+      "ZnCl2": 8e-05,
+      "(NH4)6Mo7O24·4H2O": 2e-05,
+      "CuCl2·2H2O": 2e-05,
+      "MnCl2·4H2O": 2e-05,
+      "Na2B4O7·10H2O": 2e-05
+    }
+  },
+  "SSBM-P": {
+    "type": "Defined",
+    "n_components": 12,
+    "composition": {
+      "Na-glutamate": 55.2,
+      "Glucose": 40.0,
+      "SMM-TE": 8.0,
+      "Phosphate": 0.63,
+      "MgSO4": 0.24,
+      "FeSO4·7H2O": 0.028,
+      "MnSO4·4H2O": 0.0042,
+      "HCl": 0.0034,
+      "ZnSO4·7H2O": 0.0025,
+      "CuSO4·5H2O": 0.0022,
+      "CoCl2·6H2O": 0.00011,
+      "Na2MoO4·2H2O": 5.6e-05
+    }
+  },
+  "TSB": {
+    "type": "Complex",
+    "n_components": 5,
+    "composition": {
+      "Casein peptone": 17.0,
+      "NaCl": 5.0,
+      "Soya peptone": 3.0,
+      "K2HPO4": 2.5,
+      "Glucose": 2.5
+    }
+  },
+  "YEME": {
+    "type": "Complex",
+    "n_components": 3,
+    "composition": {
+      "Malt extract": 10.0,
+      "Glucose": 4.0,
+      "Yeast extract": 0.4
+    }
+  }
+}

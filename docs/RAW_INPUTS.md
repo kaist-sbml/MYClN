@@ -53,7 +53,13 @@ Pyrodigal의 coordinate/translation API는 [공식 문서](https://pyrodigal.rea
 
 알려진 배지는 `--medium ISP2`처럼 이름으로 지정합니다.
 동결한 159개 성분 순서와 이름별 벡터는 `configs/media_catalog.json`에 포함했습니다.
-배지 이름이 같은데 참조 데이터의 조성이 여러 개인 BHI, M9 등의 경우에는 조성을 명시해야 합니다.
+이름별 기본 조성은 제공된 배지표의 38개 조성을 사용합니다. M9, CGXII, Media12 등도 이름으로 선택할 수 있습니다.
+BHI와 HIB는 표에 조성이 명시되지 않아 `--medium-json`으로 조성 또는 벡터를 직접 입력해야 합니다.
+읽기 쉬운 성분·농도 dictionary는 `configs/media_recipes.json`, 원본 표는 `configs/media_recipes.tsv`입니다.
+`python scripts/build_media_catalog.py`로 원본 표에서 배포 dictionary를 재생성할 수 있습니다.
+`component_aliases`에 명시된 여섯 표기만 변환하며, `SMMa`는 각주 a가 붙은 `SMM`으로 해석합니다.
+수정된 기본 조성은 기존 학습 데이터·가중치·참조 배지 벡터를 변경하지 않습니다.
+새 조성이 기존 참조 벡터와 일치하지 않으면 retrieval의 동일 배지 보정은 0이 됩니다.
 알 수 없는 이름·성분은 오류로 알려주며 0 벡터로 바꾸지 않습니다.
 
 직접 조성은 다음처럼 입력합니다. 값은 참조 데이터에서 사용한 수치 단위를 따릅니다.

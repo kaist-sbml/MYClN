@@ -1,0 +1,40 @@
+ISP2	Complex	3	133	Malt extract 10; Glucose 4; Yeast extract 4
+DNPM	Complex	4	132	Dextrin 40; MOPS 21; Peptone 7.5; Yeast extract 5
+TSB50	Complex	1	132	Tryptic soy broth 15
+MA	Complex	5	131	MOPS 21; Glucose 5; Casamino acids 1; Meat extract 0.5; Yeast extract 0.5
+soyM	Complex	2	132	Mannitol 10; Soy flour 10
+SMM-glucose 	Complex	3	132	Glucose 4; Casamino acids 2; SMMa 1
+SMM-glycerol	Complex	3	132	Glycerol 5; Casamino acids 2; SMMa 1
+SMM-maltose	Complex	3	130	Maltose 4; Casamino acids 2; SMMa 1
+7H9	Defined	12	1	Na2HPO4 2.5; KH2PO4 1; (NH4)2SO4 0.5; L-Glutamic acid 0.5; Ferric ammonium citrate 0.4; Sodium citrate 0.1; MgSO4 0.05; CuSO4 0.001; Pyridoxine 0.001; ZnSO4 0.001; Biotin 0.0005; CaCl2 0.0005
+BHI	Undefined (commercial)	0	3	
+CGXII	Defined	14	1	MOPS 21; (NH4)2SO4 20; Xylose 20; Urea 5; KH2PO4 1; K2HPO4 1; MgSO4·7H2O 0.25; CaCl2 0.01; FeSO4·7H2O 0.01; ZnSO4·7H2O 0.001; CuSO4·5H2O 0.0002; Biotin 0.0002; MnSO4·H2O 0.0001; NiCl2·6H2O 0.00002
+GPM	Complex	7	1	Glucose 22; Maltodextrin 12; Peptone 3; NaCl 1; MgSO4 0.8; KCl 0.5; KH2PO4 0.1
+HdB-Tyl	Defined	14	1	Glucose 10; Na2HPO4 3; (NH4)2SO4 2; KH2PO4 1.07; Tyloxapol 0.5; MgCl2·6H2O 0.1; EDTA 0.01; CaCl2 0.0068; FeSO4·7H2O 0.005; ZnSO4·7H2O 0.002; MnCl2·2H2O 0.001; CoCl2·6H2O 0.0004; CuSO4·5H2O 0.0002; Na2MoO4·2H2O 0.0002
+HIB	Undefined (commercial)	0	1	
+M9	Defined	4	1	Na2HPO4 33.9; KH2PO4 15; NH4Cl 5; NaCl 2.5
+Media1  	Defined	10	1	MOPS 20; (NH4)2SO4 7; K2HPO4 0.5; MgCl2·6H2O 0.4; CaCl2·2H2O 0.0265; Inositol 0.0016; Biotin 0.0004; Pantothenic acid 0.00032; Pyridoxine-HCl 0.00016; Thiamine-HCl 0.00016
+Media2	Defined	16	1	NaCl 27.13; MOPS 20; (NH4)2SO4 7; MgSO4 3.38; MgCl2 2.5; CaCl2 1.17; KCl 0.74; K2HPO4 0.5; MgCl2·6H2O 0.4; NaHCO3 0.21; CaCl2·2H2O 0.0265; Inositol 0.0016; Biotin 0.0004; Pantothenic acid 0.00032; Pyridoxine-HCl 0.00016; Thiamine-HCl 0.00016
+Media4	Complex	3	1	Soluble starch 8; Malt extract 3; Yeast extract 2
+Media7	Complex	9	1	Corn starch 75; Soy flour 10; (NH4)2SO4 7; CaCO3 7; Corn steep liquor 2.5; NaCl 2; Amylase 0.075; KH2PO4 0.075; CoCl2 0.005
+Media8	Complex	11	1	MOPS 8; Peptone 8; K2HPO4 2; KCl 1.5; Dextrin 1; MgCl2·6H2O 1; Glycerol trioleate 0.728; CaCl2·2H2O 0.4; NaCl 0.18; FeCl3·6H2O 0.08; ZnCl2 0.01
+Media9	Complex	11	1	MOPS 8; Peptone 4; K2HPO4 2; KCl 1.5; Dextrin 1; MgCl2·6H2O 1; Glycerol trioleate 0.728; CaCl2·2H2O 0.4; NaCl 0.18; FeCl3·6H2O 0.08; ZnCl2 0.01
+Media10	Complex	6	1	Sucrose 80; Soybean powder 20; CaCO3 3; K2HPO4 1; Skimmed milk powder 1; FeSO4·7H2O 0.1
+Media11	Defined	7	1	Glycerol 25; Na2HPO4·2H2O 12; Sodium glutamate monohydrate 11.3; KH2PO4 8; MgSO4·7H2O 1.2; Ferric(III) citrate 0.06; ZnSO4 0.00097
+Media12	Complex	9	1	Maltose 5; K2HPO4 2.6; Cellobiose 2.5; (NH4)2SO4 2; MgSO4·7H2O 0.6; CaCl2 0.001; FeSO4·7H2O 0.001; MnCl2·4H2O 0.001; ZnSO4·7H2O 0.001
+Media13	Complex	5	1	Glycerol 45.36; MOPS 20.9; Yeast extract 7; NaCl 5; NaNO3 1
+Media14	Defined	19	1	(NH4)2SO4 15; Mannitol 10; NaCl 1; MgCl2·6H2O  0.55; CaCl2 0.2; 3,4-Dihydroxybenzoic acid 0.03; FeSO4 0.02; FeCl3·6H2O 0.002; MnSO4·H2O 0.002; Nicotinamide 0.001; Riboflavin 0.001; Pyridoxine-HCl 0.0005; Thiamine-HCl 0.0005; ZnSO4·H2O 0.0005; Biotin 0.0002; CuCl2·2H2O 0.0002; Na2B4O7·10H2O 0.0002; (NH4)6Mo7O24·4H2O 0.0001; p-Aminobenzoic acid 0.0001
+Media17	Defined	4	1	Glucose 50; Cotton seed powder  25; Lactose 25; CaCO3 4
+Media18	Complex	6	1	Soluble starch 25; Sucrose 15; Malt extract 10; Isopropanol 9.432; Yeast extract 8; Isobutanol 4.01
+Media19	Complex	8	1	Casamino acids 62.5; (NH4)2SO4 25; Glucose 20; CaCl2 1.25; FeSO4·7H2O 1.25; MnCl2·4H2O 1.25; ZnSO4·7H2O 1.25; MgSO4·7H2O 0.75
+Media21	Complex	5	1	Corn powder 100; Soy flour 25; Yeast extract 5; KH2PO4 1; NaCl 1
+Media22	Complex	5	1	Glucose 10; Glycerol 10; Tryptone 2; Beef extract 1; Yeast extract 1
+Media23	Complex	10	1	Soybean oil 150; Germ powder 8; CaCO3 5; Soybean powder 5; KCl 2; Tartaric acid 2; Urea 1.6; NaCl 1; K2HPO4 0.1; MgSO4 0.1
+MGm-2.5	Complex	9	1	Starch 50; MOPS 21; Glutamate 8.83; KH2PO4/K2HPO4 0.34; MgSO4·7H2O 0.2; FeSO4·7H2O 0.009; CaCl2 0.001; NaCl 0.001; TSE 2.1 × 10-5
+MM-101	Defined	7	2	Glucose 10; K2HPO4 7; NH4Cl 7; KH2PO4 3; MgSO4·7H2O 0.25; CaCl2·2H2O 0.0138; TSE 9.2 × 10-5
+MMLM	Complex	9	2	Glucose 20; NaH2PO4/K2HPO4 buffer 14.07; Casamino acids 6.25; (NH4)2SO4 2.5; MgSO4·7H2O 0.75; CaCl2 0.00125; FeSO4·7H2O 0.00125; MnCl2·4H2O 0.00125; ZnSO4·7H2O 0.00125
+MYM	Complex	4	1	Agar 20; Malt extract 10; Maltose 4; Yeast extract 4
+R5	Complex	14	2	Sucrose 103; MgCl2·6H2O 10.12; Glucose 10; TES 5.73; Yeast extract 5; NaOH 0.28; K2SO4 0.25; Casamino acids 0.1; FeCl3·6H2O 0.0004; ZnCl2 8 × 10-5; (NH4)6Mo7O24·4H2O 2 × 10-5; CuCl2·2H2O 2 × 10-5; MnCl2·4H2O 2 × 10-5; Na2B4O7·10H2O 2 × 10-5
+SSBM-P	Defined	12	1	Na-glutamate 55.2; Glucose 40; SMM-TE 8  ; Phosphate 0.63; MgSO4 0.24; FeSO4·7H2O 0.028; MnSO4·4H2O 0.0042; HCl 0.0034; ZnSO4·7H2O 0.0025; CuSO4·5H2O 0.0022; CoCl2·6H2O 1.1 × 10-4; Na2MoO4·2H2O 5.6 × 10-5
+TSB	Complex	5	1	Casein peptone 17; NaCl 5; Soya peptone 3; K2HPO4 2.5; Glucose 2.5
+YEME	Complex	3	3	Malt extract 10; Glucose 4; Yeast extract 0.4
